@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Django Semi-Restful Users assignment">
+	{% load staticfiles %}
+	<title>Semi-Restful Users</title>
+</head>
+<body>
+		<h1>Users</h1>
+		<table>
+			<thead>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Actions</th>
+			</thead>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.full_name }}</td>
+					<td>{{ user.email }}</td>
+					<td>
+						<ul>
+							<li><a href="{% url 'restful:show' id=user.id %}">Show</a></li>
+							<li><a href="{% url 'restful:edit' id=user.id %}">Edit</a></li>
+							<li><a href="{% url 'restful:destroy' id=user.id %}">Remove</a></li>
+						</ul>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<a href="{% url 'restful:new' %}">Add a new user</a>
+	</main>
+</body>
+</html>

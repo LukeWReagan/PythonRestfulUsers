@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Django Semi-Restful User assignment">
+	{% load staticfiles %}
+	<title>Semi-Restful Routes</title>
+</head>
+<body>
+		<h1>Welcome {{ user.full_name }}</h1>
+			<p>Full Name:</p>
+			<p>{{ user.full_name }}</p>
+			<p>Email:</p>
+			<p>{{ user.email }}</p>
+		</div>
+		<ul>
+			<li><a href="{% url 'restful:edit' id=user.id %}">Edit</a></li>
+			<li><a href="{% url 'restful:index' %}">Go Back</a></li>
+		</ul>
+	</main>
+</body>
+</html>

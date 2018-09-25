@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Django Semi-Restful User assignment">
+	{% load staticfiles %}
+	<title>Semi-Restful User</title>
+</head>
+<body>
+		<h1>Add a new user</h1>
+		<form class="ninety center" action="{% url 'restful:create' %}" method="post">
+			{% csrf_token %}
+			<label for="full_name">full Name</label>
+			<input type="text" name="full_name">
+			<label for="email">Email</label>
+			<input type="text" name="email">
+			<input type="submit" name="create" value="Create">
+		</form>
+		<a href="{% url 'restful:index' %}">Go Back</a>
+	</main>
+</body>
+</html>
